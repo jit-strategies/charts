@@ -35,13 +35,13 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: COINMARKETCAP_API_KEY
-              value: {{ .Values.config.api_key }} # change to secret !
+              value: "{{ .Values.config.api_key }}" # change to secret !
             - name: COINMARKETCAP_LIMIT
-              value: {{ .Values.config.coin_limit }}
+              value: "{{ .Values.config.coin_limit }}"
             - name: CACHE_TTL
-              value: {{ .Values.config.cache_ttl }}
+              value: "{{ .Values.config.cache_ttl }}"
             - name: CACHE_MAX_SIZE
-              value: {{ .Values.config.cache_max_size }}
+              value: "{{ .Values.config.cache_max_size }}"
             # {{- range $key, $value := .Values.secretEnv }}
             # - name: {{ $key }}
             #   valueFrom:
