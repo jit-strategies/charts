@@ -79,6 +79,7 @@ serviceAccount:
   annotations: {}
   name: ""
 
+annotations: {}
 podAnnotations: {}
 podLabels: {}
 
