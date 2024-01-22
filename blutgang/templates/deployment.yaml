@@ -33,10 +33,10 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: httpPort
+            - name: http
               containerPort: {{ .Values.httpPort }}
               protocol: TCP
-            - name: adminRPCPort
+            - name: admin
               containerPort: {{ .Values.adminRPCPort }}
               protocol: TCP
           livenessProbe:

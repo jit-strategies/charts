@@ -8,11 +8,11 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.httpPort }}
-      targetPort: httpPort
+      targetPort: http
       protocol: TCP
       name: http
     - port: {{ .Values.adminRPCPort }}
-      targetPort: adminRPCPort
+      targetPort: admin
       protocol: TCP
       name: admin
   selector:
