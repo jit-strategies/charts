@@ -5,5 +5,5 @@ metadata:
   labels:
     {{- include "chainflip-lp-exporter.labels" . | nindent 4 }}
 data:
-  config.toml: |
+  config.yaml: |
     {{- tpl .Values.config . | nindent 4 }}
