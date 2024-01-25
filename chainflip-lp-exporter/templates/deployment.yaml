@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "chainflip-lp-api.fullname" . }}
+  name: {{ include "chainflip-lp-exporter.fullname" . }}
   labels:
-    {{- include "chainflip-lp-api.labels" . | nindent 4 }}
+    {{- include "chainflip-lp-exporter.labels" . | nindent 4 }}
   annotations:
     {{- toYaml .Values.annotations | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "chainflip-lp-api.selectorLabels" . | nindent 6 }}
+      {{- include "chainflip-lp-exporter.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "chainflip-lp-api.labels" . | nindent 8 }}
+        {{- include "chainflip-lp-exporter.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -27,7 +27,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "chainflip-lp-api.serviceAccountName" . }}
+      serviceAccountName: {{ include "chainflip-lp-exporter.serviceAccountName" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -52,7 +52,7 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: {{ include "chainflip-lp-api.fullname" . }}
+            name: {{ include "chainflip-lp-exporter.fullname" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

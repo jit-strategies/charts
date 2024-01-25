@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: jitstrategies/chainflip-lp-api
+  repository: jitstrategies/chainflip-lp-exporter
   pullPolicy: IfNotPresent
   tag: "latest"
 
