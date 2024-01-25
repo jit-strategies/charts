@@ -9,13 +9,13 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-config: |
-  listen_port: 9100
-  listen_address: 0.0.0.0
-  lp_host: "https://cf-berghain.jitstrategies.xyz"
-  # LPs addresses to get metrics from
-  addresses:
-    - "cFNzKSS48cZ1xQmdub2ykc2LUc5UZS2YjLaZBUvmxoXHjMMVh"  
+config: ""
+  # listen_port: 9100
+  # listen_address: 0.0.0.0
+  # lp_host: "https://cf-berghain.jitstrategies.xyz"
+  # # LPs addresses to get metrics from
+  # addresses:
+  #   - "cFNzKSS48cZ1xQmdub2ykc1Lzc5UZS2YjLaZBUvJxoXHjMMVh"
 
 httpPort: 9100
 serviceAccount:
