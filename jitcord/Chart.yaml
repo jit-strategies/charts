@@ -1,0 +1,6 @@
+apiVersion: v2
+name: jitcord
+description: A Discord bot for JIT stuff
+type: application
+version: 0.1.0
+appVersion: "0.0.1"

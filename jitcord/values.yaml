@@ -1,0 +1,30 @@
+replicaCount: 1
+
+image:
+  repository: jitstrategies/jitcord
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+config:
+  discord_token: "" # REQUIRED
+  target: "" # REQUIRED
+
+# Secret that contains env vars
+secretEnv: {}
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
