@@ -32,17 +32,17 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            - name: JITCORD_DISCORD_TOKEN
-              value: "{{ .Values.config.discord_token }}"
+            # - name: JITCORD_DISCORD_TOKEN
+            #   value: "{{ .Values.config.discord_token }}"
             - name: JITCORD_TARGET
               value: "{{ .Values.config.target }}"
-            # {{- range $key, $value := .Values.secretEnv }}
-            # - name: {{ $key }}
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: {{ include "jitcord.fullname" $ }}-env
-            #       key: {{ $key }}
-            # {{- end }}
+            {{- range .Values.secretEnv }}
+            - name: "{{ .name }}"
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .secretKeyRefName }}"
+                  key: "{{ .secretKeyRefKey }}"
+            {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

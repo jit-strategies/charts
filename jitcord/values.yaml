@@ -11,11 +11,14 @@ nameOverride: ""
 fullnameOverride: ""
 
 config:
-  discord_token: "" # REQUIRED
+  # discord_token: "" # REQUIRED
   target: "" # REQUIRED
 
 # Secret that contains env vars
 secretEnv: {}
+  # - name: JITCORD_DISCORD_TOKEN
+  #   secretKeyRefName: discord-bot-token
+  #   secretKeyRefKey: JITCORD_DISCORD_TOKEN
 
 podAnnotations: {}
 
@@ -28,3 +31,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Add here extra manifests like ad-hoc secrets.
+extraObjects: {}
