@@ -28,6 +28,11 @@ config: ""
   #     max_connections: 2000
   #     max_batch_size: 10
   #     cors: all
+  #   prometheus:
+  #     port: 9616
+  #     listen_address: "0.0.0.0"
+  #     chain_label: "mainnet"
+  #     prefix: "subway"
 
   # middlewares:
   #   methods:
@@ -41,6 +46,7 @@ config: ""
   # rpcs: ethereum
 
 httpPort: 8080
+metricsPort: 9616
 serviceAccount:
   create: false
   automount: true
