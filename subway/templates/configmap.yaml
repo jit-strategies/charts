@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "subway.fullname" . }}
+  labels:
+    {{- include "subway.labels" . | nindent 4 }}
+data:
+  config.yaml: |
+    {{- tpl .Values.config . | nindent 4 }}
